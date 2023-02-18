@@ -1,0 +1,11 @@
+{% extends 'encyclopedia/layout.html' %}
+
+{% block title %}Does Not Exists{% endblock %}
+
+{% block body %}
+    <h1>Article Does Not Exists</h1>
+
+    <p>If you want to create <a href="{% url 'encyclopedia:create' %}">PRESS THIS</a>.</p>
+    <p>If you mistakes with url <a href="{% url 'encyclopedia:index' %}">PRESS THIS</a> redirect to MAIN PAGE.</p>
+{% endblock%}
+

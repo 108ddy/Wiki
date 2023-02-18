@@ -1,0 +1,11 @@
+{% extends 'encyclopedia/layout.html' %}
+
+{% block title %}Not Found{% endblock %}
+
+{% block body %}
+    <h1><strong>Page Not Found</strong></h1>
+
+    <p><strong>Did you mean</strong>: <a href="{% url 'encyclopedia:article' title %}">/wiki/{{ title }}</a></p>
+
+    <p>Or you can visit <a href="{% url 'encyclopedia:index' %}">Main Page</a>.</p>
+{% endblock %}
