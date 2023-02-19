@@ -52,7 +52,7 @@ def search(request):
     query = request.GET.get('q')
     
     if query in util.list_entries():
-        return HttpResponseRedirect(reverse('encyclopedia:article', args=[query]))
+        return HttpResponseRedirect(reverse('encyclopedia:article', args=(query,)))
    
     return render(request, 'encyclopedia/index.html', {
         'entries': [entry for entry in util.list_entries() if query.upper() in entry.upper()] 
@@ -77,7 +77,7 @@ def create_article(request):
 
             util.save_entry(title, content)
             
-            return HttpResponseRedirect(reverse('encyclopedia:article', args=[title])) 
+            return HttpResponseRedirect(reverse('encyclopedia:article', args=(title,))) 
     
     return render(request, 'encyclopedia/create_article.html', {
         'form': NewArticleForm()
@@ -96,7 +96,7 @@ def edit_article(request, title):
 
             util.save_entry(title, content)
 
-            return HttpResponseRedirect(reverse('encyclopedia:article', args=[title]))
+            return HttpResponseRedirect(reverse('encyclopedia:article', args=(title,)))
         else:
             return render(request, 'encyclopedia/edit_article.html', {
                 'title': title,
@@ -117,7 +117,7 @@ def random_article(request):
     if entries:
         random_entry = random.choice(entries)
 
-        return HttpResponseRedirect(reverse('encyclopedia:article', args=[random_entry])) 
+        return HttpResponseRedirect(reverse('encyclopedia:article', args=(random_entry,))) 
 
 
 def custom_not_found_view(request, exception):
