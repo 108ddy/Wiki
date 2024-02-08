@@ -1,10 +1,26 @@
-# CS50 2021
+# CS50 2020
 
-Wiki | second project
+## Wiki | second project
 
-If anyone want to check how it's work,
+### Installation 
+**Requirements:**
+- Python3.8+
 
-follow this link ***[108ddy.pythonanywhere.com](https://108ddy.pythonanywhere.com)***
+### Start project
+1. Create your virtual environment and activate it:
+```shell
+python -m venv venv
+source venv/bin/activate / venv\Scripts\activate.bat (Linux/Windows)
+```
 
-it's will available to **18 May 2023**.
+2. Install required packages for the project.
+```shell
+pip install -r requirements.txt
+```
+
+3. Apply migrations *(optional)* and run the project
+```shell
+python manage.py migrate
+python manage.py runserver
+```
 
